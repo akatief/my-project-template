@@ -50,13 +50,13 @@ class CopyClass1:
 class CopyClass2:
 
     def __init__(self):
-        self.name = NAME + "2"
+        self.name = NAME
 
     def __str__(self):
         return self.name
     
     def __repr__(self):
-        return self.name + "2"
+        return self.name + "1"
     
     def __eq__(self, other):
         return self.name == other.name
