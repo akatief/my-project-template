@@ -1,2 +1,15 @@
 site_name: my_project_template
-theme: readthedocs
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      project_name: my_project_template
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
