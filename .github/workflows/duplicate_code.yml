@@ -1,6 +1,6 @@
 name: Duplicate code
 
-on: push
+on: pull_request
 
 jobs:
   duplicate-code-check:
