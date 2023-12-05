@@ -14,7 +14,24 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  setup:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.9]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install project
+        run: make install
+
   tests_linux:
+    needs: setup
     strategy:
       fail-fast: false
       matrix:
@@ -36,6 +53,7 @@ jobs:
         #   fail_ci_if_error: true
 
   tests_mac:
+    needs: setup
     strategy:
       fail-fast: false
       matrix:
@@ -53,6 +71,7 @@ jobs:
         run: make test
 
   tests_win:
+    needs: setup
     strategy:
       fail-fast: false
       matrix:
