@@ -30,8 +30,10 @@ jobs:
 
       - name: Output missing files
         if: steps.check_files.run.outputs.missing_files != ''
-        run: echo "::set-output name=missing_files::$missing_files"
-
+        run: |
+          echo "::set-output name=missing_files::$missing_files"
+          exit 1
+          
       - name: All Files Exist
         if: steps.check_files.run.outputs.missing_files == ''
         run: echo All files exist! No missing files.
