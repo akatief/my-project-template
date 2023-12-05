@@ -1,0 +1,15 @@
+name: File checker
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+    steps:
+      - name: "Check mandatory files"
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "LICENSE, README.md, requirements.txt, NOTICE, setup.py"
