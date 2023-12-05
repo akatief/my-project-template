@@ -1,9 +1,6 @@
 name: Pylint
 
-on:
-  push:
-    branches:
-      - main  # Change this to your main branch name
+on: push
 
 jobs:
   build:
