@@ -1,9 +1,6 @@
 name: Check Files
 
-on:
-  pull_request:
-    paths:
-      - '**/*'
+on: [push, pull_request]
 
 jobs:
   check-files:
@@ -16,7 +13,7 @@ jobs:
       - name: Check files
         run: |
           # Define the list of filenames you want to check
-          FILES_TO_CHECK=("file1.txt" "file2.txt" "file3.txt")
+          FILES_TO_CHECK=("LICENSE" "README.md" "requirements.txt" "NOTICE" "setup.py")
 
           # Initialize a variable to track missing files
           MISSING_FILES=()
