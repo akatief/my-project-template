@@ -1,39 +1,41 @@
-name: File checker
+name: Check Files
 
-on: push
+on:
+  pull_request:
+    paths:
+      - '**/*'
 
 jobs:
-  check_files:
+  check-files:
     runs-on: ubuntu-latest
-    outputs:
-      # Output variable to store the list of missing files
-      missing_files: ${{ steps.set_output.outputs.missing_files }}
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up variables
-        id: set_output
-        run: echo "::set-output name=missing_files::"
-
-      - name: Check Files
-        id: check_files
+      - name: Check files
         run: |
-          missing_files=""
-          for file in LICENSE README.md requirements.txt NOTICE setup.py; do
-            echo "Checking $file"
-            if [ ! -f "$file" ]; then
-              missing_files="$missing_files $file"
+          # Define the list of filenames you want to check
+          FILES_TO_CHECK=("file1.txt" "file2.txt" "file3.txt")
+
+          # Initialize a variable to track missing files
+          MISSING_FILES=()
+
+          # Check if each file exists in the root directory
+          for FILE in "${FILES_TO_CHECK[@]}"; do
+            if [ ! -f "$FILE" ]; then
+              MISSING_FILES+=("$FILE")
             fi
           done
 
-      - name: Output missing files
-        if:  ${{ steps.check_files.outputs.missing_files != '' }}
-        run: |
-          echo "::set-output name=missing_files::$missing_files"
-          exit 1
-          
-      - name: Output success
-        if:  ${{ steps.check_files.outputs.missing_files == '' }}
-        run: |
-          echo "All files are present"
+          # Output the missing files
+          if [ ${#MISSING_FILES[@]} -eq 0 ]; then
+            echo "All files exist."
+          else
+            echo "The following files are missing:"
+            for MISSING_FILE in "${MISSING_FILES[@]}"; do
+              echo "- $MISSING_FILE"
+            done
+            echo "::error::One or more files are missing."
+            exit 1
+          fi
