@@ -1,0 +1,25 @@
+name: 'Setup'
+
+on: 
+    workflow_call:  # This action is not triggered, only used in other workflows
+        inputs:
+            python-version: # This will be set by the calling workflow
+                type: string
+                description: 'Python version to use'
+                required: true
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with: ${{ inputs.python-version }}
+           
+      - name: Install dependencies
+        run: |
+            pip install .
