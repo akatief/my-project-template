@@ -1,12 +1,12 @@
-name: 'Setup'
+name: Setup
 
 on: 
-    workflow_call:  # This action is not triggered, only used in other workflows
-        inputs:
-            python-version: # This will be set by the calling workflow
-                type: string
-                description: 'Python version to use'
-                required: true
+  workflow_call:  # This action is not triggered, only used in other workflows
+      inputs:
+          python-version: # This will be set by the calling workflow
+              type: string
+              description: 'Python version to use'
+              required: true
 
 jobs:
   install:
