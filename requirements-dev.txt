@@ -2,7 +2,7 @@
 # You shouldn't need to modify this file, unless you know what you are doing.
 pytest
 coverage
-flake8
+pylint
 black
 isort
 pytest-cov
