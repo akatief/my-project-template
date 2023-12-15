@@ -77,7 +77,7 @@ jobs:
           pip install -r requirements-dev.txt
       - name: Analysing the code with pylint
         run: |
-          pylint --disable=trailing-whitespace,missing-class-docstring,missing-final-newline \
+          pylint --disable=trailing-whitespace,missing-class-docstring,missing-final-newline,trailing-newlines \
                   --fail-under=9.0 \
                   $(git ls-files '*.py') || echo "::warning::Pylint check failed, but the workflow will continue."
 
