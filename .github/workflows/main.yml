@@ -48,34 +48,24 @@ jobs:
             exit 1
           fi
 
-  setup:
-    needs: check-files
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: [3.9]
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup/
-        with:
-          python-version: ${{ matrix.python-version }}
-
   linter:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.9]
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
         uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+        with: ${{ matrix.python-version }}
+          
       - name: Install dependencies
         run: |
+          pip install .
           pip install -r requirements-dev.txt
+
       - name: Analysing the code with pylint
         run: |
           pylint --disable=trailing-whitespace,missing-class-docstring,missing-final-newline,trailing-newlines \
@@ -83,7 +73,7 @@ jobs:
                   $(git ls-files '*.py') || echo "::warning::Pylint check failed, but the workflow will continue."
 
   tests:
-    needs: setup
+    needs: check-files
     strategy:
       fail-fast: false
       matrix:
@@ -93,13 +83,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup/
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install additional dependencies
-        run: pip install -r requirements-dev.txt
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with: ${{ matrix.python-version }}
+          
+      - name: Install dependencies
+        run: |
+          pip install .
+          pip install -r requirements-dev.txt
       - name: Run tests
-        run: make test
+        run: |
+          pytest -v --cov-config .coveragerc --cov=my_project_template -l --tb=short --maxfail=1 tests/
+          coverage xml
+          coverage html
       # - name: "Upload coverage to Codecov"
       #   uses: codecov/codecov-action@v3
         # with:
