@@ -58,7 +58,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup
+      - uses: ./.github/workflows/setup/
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -93,7 +93,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: ./.github/workflows/setup
+      - uses: ./.github/workflows/setup/
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install additional dependencies
