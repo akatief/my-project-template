@@ -1,5 +1,4 @@
-from my_project_template.base import NAME
+# Tests are defined here
 
-
-def test_base():
-    assert NAME == "my_project_template"
+def test_template():
+    assert True

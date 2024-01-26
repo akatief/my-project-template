@@ -13,23 +13,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  # setup:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v4
-  #       with: 
-  #         python-version: 3.9
-          
-  #     - name: Install dependencies
-  #       run: |
-  #         pip install .
-  #         pip install -r requirements-dev.txt
   
   check-files:
     runs-on: ubuntu-latest
@@ -109,48 +92,6 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v --cov-config .coveragerc --cov=my_project_template -l --tb=short --maxfail=1 tests/
+          pytest -v --cov-fail-under=60 --cov=my_project_template -l --tb=short --maxfail=1 tests/
           coverage xml
           coverage html
-      # - name: "Upload coverage to Codecov"
-      #   uses: codecov/codecov-action@v3
-        # with:
-        #   fail_ci_if_error: true
-
-  # tests_mac:
-  #   needs: setup
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       python-version: [3.9]
-  #       os: [macos-latest]
-  #   runs-on: ${{ matrix.os }}
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v4
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #     - name: Install project
-  #       run: make install
-  #     - name: Run tests
-  #       run: make test
-
-  # tests_win:
-  #   needs: setup
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       python-version: [3.9]
-  #       os: [windows-latest]
-  #   runs-on: ${{ matrix.os }}
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-python@v4
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #     - name: Install Pip
-  #       run: pip install --user --upgrade pip
-  #     - name: Install project
-  #       run: pip install -e .[test]
-  #     - name: run tests
-  #       run: pytest -s -vvvv -l --tb=long tests
