@@ -1,25 +1,29 @@
 
-# Python Project Template
+# UKP Project Template
+[![Arxiv](https://img.shields.io/badge/Arxiv-YYMM.NNNNN-red?style=flat-square&logo=arxiv&logoColor=white)](https://put-here-your-paper.com)
+[![Python Versions](https://img.shields.io/badge/Python-3.11-blue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/github/license/akatief/my-project-template)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/akatief/my-project-template/actions/workflows/main.yml/badge.svg)](https://github.com/akatief/my-project-template/blob/main/.github/workflows/main.yml)
 
 A low dependency and really simple to start project template for Python Projects.
 
-See also 
-- [Flask-Project-Template](https://github.com/rochacbruno/flask-project-template/) for a full feature Flask project including database, API, admin interface, etc.
-- [FastAPI-Project-Template](https://github.com/rochacbruno/fastapi-project-template/) The base to start an openapi project featuring: SQLModel, Typer, FastAPI, JWT Token Auth, Interactive Shell, Management Commands.
+### Getting Started
 
-### HOW TO USE THIS TEMPLATE
+> **DO NOT CLONE OR FORK**
 
-> **DO NOT FORK** this is meant to be used from **[Use this template](https://github.com/rochacbruno/python-project-template/generate)** feature.
+first, create a repository on the page by following the standard procedure, then
+this template is to be pushed , or automatically 
 
-1. Click on **[Use this template](https://github.com/rochacbruno/python-project-template/generate)**
-3. Give a name to your project  
-   (e.g. `my_awesome_project` recommendation is to use all lowercase and underscores separation for repo names.)
+1. Follow the standard procedure to create a repository on UKP Lab's GitHub and clone that one.
+2. Download this template as a .zip by clicking on `Code > Download ZIP`.
+3. Extract the zip and push it to the UKP Lab repository.
 3. Wait until the first run of CI finishes  
    (Github Actions will process the template and commit to your new repo)
-4. If you want [codecov](https://about.codecov.io/sign-up/) Reports and Automatic Release to [PyPI](https://pypi.org)  
-  On the new repository `settings->secrets` add your `PYPI_API_TOKEN` and `CODECOV_TOKEN` (get the tokens on respective websites)
+4. If you don't want automatic documentation generation, you can delete folder `docs` and file `.github\workflows\docs.yml`
+5. If you don't want automatic testing, you can delete folder `tests` and file `.github\workflows\tests.yml`
 4. Read the file [CONTRIBUTING.md](CONTRIBUTING.md)
-5. Then clone your new project and happy coding!
+
+Click on **[Use this template](https://github.com/rochacbruno/python-project-template/generate)**
 
 > **NOTE**: **WAIT** until first CI run on github actions before cloning your new project.
 
