@@ -31,11 +31,10 @@ def read_requirements(path):
 
 setup(
     name="my_project_template",
-    description="Awesome my_project_template created by akatief",
     url="https://github.com/akatief/my-project-template/",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
-    author="akatief",
+    author="author_name",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
     entry_points={
