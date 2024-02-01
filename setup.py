@@ -31,7 +31,6 @@ def read_requirements(path):
 
 setup(
     name="my_project_template",
-    version=read("my_project_template", "VERSION"),
     description="Awesome my_project_template created by akatief",
     url="https://github.com/akatief/my-project-template/",
     long_description=read("README.md"),
