@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/akatief/my-project-template)](https://opensource.org/licenses/Apache-2.0)
 [![CI](https://github.com/akatief/my-project-template/actions/workflows/main.yml/badge.svg)](https://github.com/akatief/my-project-template/actions/workflows/main.yml)
 
-My Project does a lot of very interesting stuff, like this and that.
+RANDOM STUFFFFF
 
 > **Abstract:** This is a copy of my beautiful abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
