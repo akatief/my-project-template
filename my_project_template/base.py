@@ -1,6 +1,4 @@
-# example constant variable
-NAME = "my_project_template"
-
+# Example class
 class BaseClass:
     """
     Base class representing an entity.
@@ -23,11 +21,11 @@ class BaseClass:
 
     """
 
-    def __init__(self):
+    def __init__(self, name: str):
         """
         Initializes a new instance of the BaseClass.
         """
-        self.name = NAME  # Replace NAME with an appropriate value
+        self.name = name
 
     def __str__(self):
         """
