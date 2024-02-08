@@ -93,5 +93,3 @@ jobs:
       - name: Run tests
         run: |
           pytest -v --cov-fail-under=60 --cov=my_project_template -l --tb=short --maxfail=1 tests/
-          coverage xml
-          coverage html
