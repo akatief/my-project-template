@@ -1,7 +1,7 @@
 # ukp_project_template
 [![Arxiv](https://img.shields.io/badge/Arxiv-YYMM.NNNNN-red?style=flat-square&logo=arxiv&logoColor=white)](https://put-here-your-paper.com)
-[![Python Versions](https://img.shields.io/badge/Python-3.11-blue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/github/license/akatief/my-project-template)](https://opensource.org/licenses/Apache-2.0)
+[![Python Versions](https://img.shields.io/badge/Python-3.9-blue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![CI](https://github.com/akatief/my-project-template/actions/workflows/main.yml/badge.svg)](https://github.com/akatief/my-project-template/actions/workflows/main.yml)
 
 This is the official template for new Python projects at UKP Lab. It was adapted for the needs of UKP Lab from the excellent [python-project-template](https://github.com/rochacbruno/python-project-template/) by [rochacbruno](https://github.com/rochacbruno).
